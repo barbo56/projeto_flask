@@ -113,12 +113,12 @@ celerybeat.pid
 
 # Environments
 .env
-.elga
+.venv
 env/
-elga/
+venv/
 ENV/
 env.bak/
-elga.bak/
+venv.bak/
 
 # Spyder project settings
 .spyderproject
