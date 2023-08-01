@@ -118,7 +118,7 @@ env/
 elga/
 ENV/
 env.bak/
-venv.bak/
+elga.bak/
 
 # Spyder project settings
 .spyderproject
