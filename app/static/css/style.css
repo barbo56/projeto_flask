@@ -1,0 +1,76 @@
+    body {
+      font-family: 'Verdana', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #232323;
+      color: #ddd;
+    }
+
+    header {
+      background-color: #333;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 36px;
+      color: #fff;
+    }
+
+    nav {
+      background-color: #1a1a1a;
+      text-align: center;
+      padding: 10px;
+    }
+
+    nav a {
+      color: #ddd;
+      text-decoration: none;
+      padding: 10px 20px;
+      margin: 0 5px;
+    }
+
+    nav a:hover {
+      background-color: #333;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 30px;
+    }
+
+    .intro {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .intro h2 {
+      font-size: 24px;
+      color: #f5deb3; /* Cor amarela creme */
+    }
+
+    .projects {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .project {
+      width: 300px;
+      margin: 20px;
+      padding: 20px;
+      background-color: #1a1a1a;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .project h3 {
+      color: #f5deb3; /* Cor amarela creme */
+      font-size: 20px;
+    }
+
+    .project p {
+      color: #ddd;
+      margin-top: 10px;
+    }
