@@ -1,35 +1,15 @@
+{% extends 'base.html' %}
 
-   <!DOCTYPE html>
-  <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{title}}</title>
-    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/style.css')}}">
-  </head>
-
-  <body>
-    <header>
-      <h1>Elga Alamour</h1>
-    </header>
-  
-    <nav>
-        <a href="index">Início</a>
-        <a href="sobre">Sobre</a>
-        <a href="projeto">Projetos</a>
-        <a href="contato">Contato</a>
-    </nav>
-  
-    <div class="container">
-      <!-- Conteúdo da página "Contato" -->
-      <div class="contact">
-        <div class="contact-image"></div>
-        <div class="contact-info">
-          <h2>Elga Alamour</h2>
-          <p><i class="fa fa-envelope"></i> Email: elga.alamour@rapidmail.com</p>
-          <p><i class="fa fa-phone"></i> Telefone: (56) 4002-8922</p>
-        </div>
-      </div>
+{% block conteudo %}
+<div class="container">
+  <!-- Conteúdo da página "Contato" -->
+  <div class="contact">
+    <div class="contact-image"></div>
+    <div class="contact-info">
+      <h2>Elga Alamour</h2>
+      <p><i class="fa fa-envelope"></i> Email: elga.alamour@rapidmail.com</p>
+      <p><i class="fa fa-phone"></i> Telefone: (56) 4002-8922</p>
     </div>
-  </body>
-  </html>  
+  </div>
+</div>
+{% endblock %}

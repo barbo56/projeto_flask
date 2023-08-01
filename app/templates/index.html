@@ -1,43 +1,23 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
+{% extends 'base.html' %}
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{title}}r</title>
-  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/style.css')}}"> <!-- Esse atributo é utilizado para segurança, não permite que algupem acesse a pasta raiz do projeto por meio da URL -->
-</head>
-
-<body>
-  <header>
-    <h1>Elga Alamour</h1>
-  </header>
-
-  <nav>
-    <a href="index">Início</a>
-    <a href="sobre">Sobre</a>
-    <a href="projeto">Projetos</a>
-    <a href="contato">Contato</a>
-  </nav>
-
-  <div class="container">
-    <div class="intro">
-      <h2>Olá, bem-vindo ao meu portfólio!</h2>
-      <p>Me chamo Elga Alamour, uma aspirante a programação apaixonada por tecnologia e desenvolvimento de software. Amante de gatos nas horas vagas</p>
-    </div>
-
-    <h2>Meus Projetos</h2>
-    <div class="projects">
-      <div class="project">
-        <h3>Projeto 1</h3>
-        <p>Descrição do projeto 1.</p>
-      </div>
-      <div class="project">
-        <h3>Projeto 2</h3>
-        <p>Descrição do projeto 2.</p>
-      </div>
-      <!-- Adicione mais projetos aqui -->
-    </div>
+{% block conteudo %}
+<div class="container">
+  <div class="intro">
+    <h2>Olá, bem-vindo ao meu portfólio!</h2>
+    <p>Me chamo Elga Alamour, uma aspirante a programação apaixonada por tecnologia e desenvolvimento de software. Amante de gatos nas horas vagas</p>
   </div>
-</body>
-</html>
+
+  <h2>Meus Projetos</h2>
+  <div class="projects">
+    <div class="project">
+      <h3>Projeto 1</h3>
+      <p>Descrição do projeto 1.</p>
+    </div>
+    <div class="project">
+      <h3>Projeto 2</h3>
+      <p>Descrição do projeto 2.</p>
+    </div>
+    <!-- Adicione mais projetos aqui -->
+  </div>
+</div>
+{% endblock %}
