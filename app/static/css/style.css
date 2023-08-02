@@ -85,3 +85,46 @@
       left: 0;
       width: 100%;
     }
+    
+    /* CSS Formulário */
+    form {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #b19cd9; /* Roxo claro */
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra leve */
+    }
+
+    /* Estilo para os campos de entrada */
+    form label {
+      display: block; /* Torna cada label ocupar uma linha inteira */
+      margin-bottom: 8px; /* Espaçamento vertical entre os labels */
+      color: #333; /* Cor do texto padrão */
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    textarea {
+      display: block; /* Torna cada input e textarea ocuparem uma linha inteira */
+      width: 100%;
+      margin-bottom: 12px; /* Espaçamento vertical entre os campos */
+      padding: 10px;
+      border: 1px solid #ccc; /* Borda cinza claro */
+      border-radius: 5px;
+    }
+
+    /* Estilo para o botão de envio */
+    button[type="submit"] {
+      background-color: #6c5b7b; /* Rosa escuro */
+      color: #fff; /* Texto branco */
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #9b89b0; /* Rosa mais claro ao passar o mouse */
+    }
