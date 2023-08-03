@@ -61,7 +61,7 @@
       width: 300px;
       margin: 20px;
       padding: 20px;
-      background-color: #1a1a1a;
+      background-color: #3f3f3f;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     }
 
@@ -91,7 +91,7 @@
       max-width: 400px;
       margin: 0 auto;
       padding: 20px;
-      background-color: #b19cd9; /* Roxo claro */
+      background-color: #eecb8b; /* Roxo claro */
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra leve */
     }
@@ -108,7 +108,7 @@
     input[type="tel"],
     textarea {
       display: block; /* Torna cada input e textarea ocuparem uma linha inteira */
-      width: 100%;
+      width: 94%;
       margin-bottom: 12px; /* Espaçamento vertical entre os campos */
       padding: 10px;
       border: 1px solid #ccc; /* Borda cinza claro */

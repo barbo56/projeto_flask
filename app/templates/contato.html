@@ -6,20 +6,20 @@
   <div class="contact">
     <div class="contact-image"></div>
     <div class="contact-info">
-      <form action="/enviar_contato" method="post">
+      <form action="" method="post">
         <label for="nome">Nome:</label>
-        <input type="text" id="nome" name="nome" required>
+        {{formulario.nome}}
     
         <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
+        {{formulario.email}}
     
         <label for="telefone">Telefone:</label>
-        <input type="tel" id="telefone" name="telefone" required>
+        {{formulario.telefone}}
     
         <label for="conteudo">Conteúdo:</label>
-        <textarea id="conteudo" name="conteudo" rows="4" required></textarea>
-    
-        <button type="submit">Enviar</button>
+        {{formulario.conteudo}}
+        
+        {{formulario.enviar}}
       </form>
     </div>
   </div>
