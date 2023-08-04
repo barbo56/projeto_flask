@@ -43,9 +43,13 @@ Para configuração e instalação do ambiente de desenvolvimento basta baixar o
     
     pip install -r requirements.txt
 
+Caso venha a fazer alguma alteração no código execute o comando:
+    
+    pip freeze > requirements.txt
+
 ## Contato
 
-Para mais informações ou dúvidas relacionadas ao projeto, sinta-se à vontade para entrar em contato conosco através do e-mail: madsnfelip@gmail.com.
+Para mais informações ou dúvidas relacionadas ao projeto, sinta-se à vontade para entrar em contato através do e-mail: madsnfelip@gmail.com.
 
 ## Apêndice
 

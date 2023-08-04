@@ -1,27 +1,39 @@
 {% extends 'base.html' %}
 
 {% block conteudo %}
-<div class="container">
-  <!-- Conteúdo da página "Contato" -->
-  <div class="contact">
-    <div class="contact-image"></div>
-    <div class="contact-info">
-      <form action="" method="post">
-        <label for="nome">Nome:</label>
-        {{formulario.nome}}
-    
-        <label for="email">Email:</label>
-        {{formulario.email}}
-    
-        <label for="telefone">Telefone:</label>
-        {{formulario.telefone}}
-    
-        <label for="conteudo">Conteúdo:</label>
-        {{formulario.conteudo}}
-        
-        {{formulario.enviar}}
-      </form>
-    </div>
-  </div>
-</div>
+
+{% with mensagens = get_flashed_messages() %}
+  {% if mensagens %}
+    <ul class=flashes>
+    {% for mensagem in mensagens %}
+      <li>{{ mensagem }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+
+{% if dados_formulario %}
+    <p>Informações do formulário</p>
+    <p>Nome: {{ dados_formulario.nome }}</p>
+    <p>Email: {{ dados_formulario.email }}</p>
+    <p>Telefone: {{ dados_formulario.telefone }}</p>
+    <p>Conteúdo: {{ dados_formulario.conteudo }}</p>
+{% endif %}
+
+<form action="" method="post">
+  {{formulario.csrf_token}}
+  <label for="nome">Nome:</label>
+  {{formulario.nome}}
+
+  <label for="email">Email:</label>
+  {{formulario.email}}
+
+  <label for="telefone">Telefone:</label>
+  {{formulario.telefone}}
+
+  <label for="conteudo">Conteúdo:</label>
+  {{formulario.conteudo}}
+  
+  {{formulario.enviar}}
+</form>
 {% endblock %}
