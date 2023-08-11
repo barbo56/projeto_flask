@@ -1,8 +1,12 @@
 from flask import Flask
 from config import Config
+from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
 
 app = Flask(__name__)
 app.config.from_object(Config)
-#csrf = CSRFProtect(app) Proteção de alguma coisa que eu não entendi muito bem
 
-from app import routes
+db = SQLAlchemy(app)
+migrate = Migrate(app, db)
+
+from app import routes, models
