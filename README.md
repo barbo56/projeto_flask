@@ -47,6 +47,18 @@ Caso venha a fazer alguma alteração no código execute o comando:
     
     pip freeze > requirements.txt
 
+No terminal, na pasta do seu projeto, execute o seguinte comando para criar uma pasta para as migrações:
+
+    flask db init
+
+Isso criará uma pasta chamada migrations onde as migrações serão armazenadas. Agora você pode usar o seguinte comando para gerar uma migração baseada nos modelos que você definiu:
+
+    flask db migrate -m "Nome da Migração"
+
+Sempre que você fizer alterações em seus modelos e quiser aplicar as migrações pendentes ao banco de dados.
+
+    bash flask db upgrade
+
 ## Contato
 
 Para mais informações ou dúvidas relacionadas ao projeto, sinta-se à vontade para entrar em contato através do e-mail: madsnfelip@gmail.com.

@@ -1,3 +1,8 @@
+# Configurações de banco de dados (bd/db)
+/migrations
+app.db
+migrations/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
