@@ -108,7 +108,7 @@
     input[type="tel"],
     textarea {
       display: block; /* Torna cada input e textarea ocuparem uma linha inteira */
-      width: 94%;
+      width: 100%;
       margin-bottom: 12px; /* Espaçamento vertical entre os campos */
       padding: 10px;
       border: 1px solid #ccc; /* Borda cinza claro */

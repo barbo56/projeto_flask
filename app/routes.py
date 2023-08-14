@@ -29,8 +29,12 @@ def contato():
 
 @app.route('/sobre')
 def sobre():
-    return render_template('sobre.html', title='Sobre mim')
+    return render_template('sobre.html', title = 'Sobre mim')
 
 @app.route('/projeto')
 def projeto():
-    return render_template('projeto.html', title='Meus Projetos')
+    return render_template('projeto.html', title = 'Meus Projetos')
+
+@app.route('/teste')
+def teste():
+    return render_template('teste.html', title = 'Hora do teste')
