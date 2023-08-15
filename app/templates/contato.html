@@ -8,41 +8,33 @@
         {% if mensagens %}
           <ul class="flashes list-unstyled">
             {% for mensagem in mensagens %}
-              <li class="alert alert-info">{{ mensagem }}</li>
+              <li class="alert alert-secondary" role="alert">{{ mensagem }}</li>
             {% endfor %}
           </ul>
         {% endif %}
       {% endwith %}
 
-      {% if dados_formulario %}
-        <div class="mb-4">
-          <h4>Informações do formulário</h4>
-          <p><strong>Nome:</strong> {{ dados_formulario.nome }}</p>
-          <p><strong>Email:</strong> {{ dados_formulario.email }}</p>
-          <p><strong>Telefone:</strong> {{ dados_formulario.telefone }}</p>
-          <p><strong>Conteúdo:</strong> {{ dados_formulario.conteudo }}</p>
-        </div>
-      {% endif %}
+      
 
       <form action="" method="post">
         {{ formulario.csrf_token }}
         <div class="mb-3">
           <label for="nome" class="form-label">Nome:</label>
-          {{ formulario.nome(class="form-control") }}
+          {{ formulario.nome(class="form-control", placeholder="Digite seu nome") }}
         </div>
         <div class="mb-3">
           <label for="email" class="form-label">Email:</label>
-          {{ formulario.email(class="form-control") }}
+          {{ formulario.email(class="form-control", placeholder="Digite seu email") }}
         </div>
         <div class="mb-3">
           <label for="telefone" class="form-label">Telefone:</label>
-          {{ formulario.telefone(class="form-control") }}
+          {{ formulario.telefone(class="form-control", placeholder="Digite um telefone para contato") }}
         </div>
         <div class="mb-3">
           <label for="conteudo" class="form-label">Conteúdo:</label>
-          {{ formulario.conteudo(class="form-control") }}
+          {{ formulario.conteudo(class="form-control", rows="5", placeholder="Digite sua mensagem") }}
         </div>
-        {{ formulario.enviar(class="btn btn-primary") }}
+        {{ formulario.enviar(class="btn btn-dark") }}
       </form>
     </div>
   </div>

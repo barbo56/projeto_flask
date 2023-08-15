@@ -115,16 +115,5 @@
       border-radius: 5px;
     }
 
-    /* Estilo para o botão de envio */
-    button[type="submit"] {
-      background-color: #6c5b7b; /* Rosa escuro */
-      color: #fff; /* Texto branco */
-      padding: 10px 15px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    button[type="submit"]:hover {
-      background-color: #9b89b0; /* Rosa mais claro ao passar o mouse */
-    }
+    /* Estilo para a página de login */
+    
