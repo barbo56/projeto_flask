@@ -1,28 +1,20 @@
 {% extends 'base.html' %}
 
 {% block conteudo %}
-<form>
+<form action="{{ url_for('login') }}" method="post">
     <div class="form-row align-items-center">
         <div class="my-1">
-            <label class="sr-only" for="inlineFormInputGroupUsername">Usuário</label>
+            <label for="nome_usuario">Usuário</label>
             <div class="input-group">
-              <input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Nome de Usuário">
+              <input type="text" class="form-control" id="nome_usuario" name="nome_usuario" placeholder="Nome de Usuário" required>
             </div>
         </div>
         <div class="my-1">
-            <label class="sr-only" for="inlineFormInputName">Senha</label>
-            <input type="text" class="form-control" id="inlineFormInputPassword" placeholder="Insira sua senha">
+            <label for="senha">Senha</label>
+            <input type="password" class="form-control" id="senha" name="senha" placeholder="Insira sua senha" required>
         </div>
-        <div class="col-auto my-1">
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" id="autoSizingCheck2">
-              <label class="form-check-label" for="autoSizingCheck2">
-                Continuar conectado
-              </label>
-            </div>
-        </div>
-        <div class="col-auto my-1">
-            <button type="submit" class="btn btn-primary">Entrar</button>
+        <div class="my-1">
+          <button type="submit" class="btn btn-primary">Entrar</button>
         </div>
     </div>
 </form>

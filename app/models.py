@@ -13,5 +13,5 @@ class ContatoModels(db.Model):
 class CadastroModels(db.Model):
     id = db.Column(db.Integer, primary_key = True)
     email = db.Column(db.String(50), nullable = False, unique = True)
-    nome_usuario = db.Column(db.String(10), nullable = False)
+    nome_usuario = db.Column(db.String(10), nullable = False, unique = True)
     senha = db.Column(db.String(10), nullable = False)

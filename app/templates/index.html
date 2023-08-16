@@ -1,6 +1,17 @@
 {% extends 'base.html' %}
 
 {% block conteudo %}
+
+{% with mensagens = get_flashed_messages() %}
+  {% if mensagens %}
+    <ul class="flashes list-unstyled">
+      {% for mensagem in mensagens %}
+        <li class="alert alert-secondary" role="alert">{{ mensagem }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+
 <div class="container">
   <div class="intro text-center py-5">
     <h2>Olá, bem-vindo ao meu portfólio!</h2>

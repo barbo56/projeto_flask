@@ -1,5 +1,5 @@
 from app import app, db
-from flask import render_template, url_for, flash, redirect, request
+from flask import render_template, url_for, flash, redirect, request, session, redirect
 from app.forms import Contato, Cadastro
 from app.models import ContatoModels, CadastroModels
 import time #Biblioteca de tempo
@@ -39,15 +39,33 @@ def projeto():
 def cadastro():
     cadastro = Cadastro()
     if cadastro.validate_on_submit():
-        flash('Seu cadastro foi realizado com sucesso')
-        email = cadastro.email.data
-        nome_usuario = cadastro.nome_usuario.data
-        senha = cadastro.senha.data
-        novo_cadastro = CadastroModels(email = email, nome_usuario = nome_usuario, senha = senha)
-        db.session.add(novo_cadastro)
-        db.session.commit()
+        try:
+            email = cadastro.email.data
+            nome_usuario = cadastro.nome_usuario.data
+            senha = cadastro.senha.data
+            novo_cadastro = CadastroModels(email = email, nome_usuario = nome_usuario, senha = senha)
+            db.session.add(novo_cadastro)
+            db.session.commit()
+            flash('Seu cadastro foi realizado com sucesso')
+        except Exception as erro: #Salva o erro na variável (recomendado o uso da variável "e" para armazenar o erro)
+            flash('Ocorreu um erro ao cadastrar. Entre em contato com o suporte: zezindoserros@rapidmail.com')
+            print(str(erro)) #Evitar concatenar o erro na mensagem flash, para que o usuário não veje o erro que ocasionou o problema
+    
     return render_template('cadastro.html', title = 'Cadastre-se', cadastro = cadastro)
 
-@app.route('/login')
+@app.route('/login', methods = ['GET','POST'])
 def login():
+    print('entrou')
+    if request.method == "POST":
+        nome_usuario = request.form.get('nome_usuario')
+        senha = request.form.get('senha')
+        usuario = CadastroModels.query.filter_by(nome_usuario = nome_usuario, senha = senha).first()
+        if usuario and usuario.senha == senha:
+            session['nome_usuario'] = usuario.id
+            flash('Login efetuado com sucesso!')
+            time.sleep(1.5)
+            return redirect(url_for('index'))
+        else:
+            flash('Nome de usuário ou senha incorreta')
+
     return render_template('login.html', title = 'Login')

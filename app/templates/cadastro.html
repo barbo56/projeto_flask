@@ -4,7 +4,7 @@
 
 {% with mensagens = get_flashed_messages() %}
     {% if mensagens %}
-        <ul class="flashes list-unstyled">
+        <ul class="col-xl-12">
         {% for mensagem in mensagens %}
             <li class="alert alert-secondary" role="alert">{{ mensagem }}</li>
         {% endfor %}
@@ -14,19 +14,17 @@
 
 <form action="" method="post">
     {{ cadastro.csrf_token }}
-    <div class="form-row">
-        <div class="mb-3">
-            <label for="email">Email</label>
-            {{ cadastro.email(class="form-control", placeholder="Digite seu email") }}
-        </div>
-        <div class="mb-3">
-            <label for="nome_usuario">Usuário</label>
-            {{ cadastro.nome_usuario(class="form-control", placeholder="Crie um nome de usuário") }}
-        </div>
-        <div class="mb-3">
-            <label for="senha">Senha</label>
-            {{ cadastro.senha(class="form-control", placeholder="Digite sua senha") }}
-        </div>
+    <div class="mb-3">
+        <label for="email" class="form-label">Email:</label>
+        {{ cadastro.email(class="form-control", placeholder="Digite seu email") }}
+    </div>
+    <div class="mb-3">
+        <label for="senha" class="form-label">Senha:</label>
+        {{ cadastro.senha(class="form-control", placeholder="Digite sua senha") }}
+    </div>
+    <div class="mb-3">
+        <label for="nome_usuario" class="form-label">Nome usuário:</label>
+        {{ cadastro.nome_usuario(class="form-control", placeholder="Crie um nome de usuário") }}
     </div>
     {{ cadastro.enviar(class="btn btn-dark") }}
 </form>
