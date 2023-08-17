@@ -1,7 +1,8 @@
-from app import app, db
+from app import app, db, bcrypt
 from flask import render_template, url_for, flash, redirect, request, session, redirect
 from app.forms import Contato, Cadastro
 from app.models import ContatoModels, CadastroModels
+from flask_bcrypt import check_password_hash
 import time #Biblioteca de tempo
 
 @app.route('/') #é possível utilizar somente a barra para determinar o caminho principal
@@ -43,7 +44,8 @@ def cadastro():
             email = cadastro.email.data
             nome_usuario = cadastro.nome_usuario.data
             senha = cadastro.senha.data
-            novo_cadastro = CadastroModels(email = email, nome_usuario = nome_usuario, senha = senha)
+            hash_senha = bcrypt.generate_password_hash(senha).decode('utf-8')
+            novo_cadastro = CadastroModels(email = email, nome_usuario = nome_usuario, senha = hash_senha)
             db.session.add(novo_cadastro)
             db.session.commit()
             flash('Seu cadastro foi realizado com sucesso')
@@ -55,17 +57,23 @@ def cadastro():
 
 @app.route('/login', methods = ['GET','POST'])
 def login():
-    print('entrou')
     if request.method == "POST":
         nome_usuario = request.form.get('nome_usuario')
         senha = request.form.get('senha')
-        usuario = CadastroModels.query.filter_by(nome_usuario = nome_usuario, senha = senha).first()
-        if usuario and usuario.senha == senha:
-            session['nome_usuario'] = usuario.id
+        usuario = CadastroModels.query.filter_by(nome_usuario = nome_usuario).first() #Busca a primeira ocorrência, no banco de dados, da ocorrência digitada
+        if usuario and check_password_hash(usuario.senha, senha): #Verifica se o usuário solicitado no banco de dados confere com o digitado na página
+            session['nome_usuario'] = usuario.nome_usuario
+            #session['email'] = usuario.email
             flash('Login efetuado com sucesso!')
-            time.sleep(1.5)
+            time.sleep(1) #Define o tempo que a pagina permanece em visualização antes de ser redirecionada
             return redirect(url_for('index'))
         else:
             flash('Nome de usuário ou senha incorreta')
 
     return render_template('login.html', title = 'Login')
+
+@app.route('/sair')
+def sair():
+    session.pop('nome_usuario', None)
+    #session.pop('email', None)
+    return redirect(url_for('login'))
