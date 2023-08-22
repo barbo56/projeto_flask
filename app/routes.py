@@ -44,8 +44,17 @@ def cadastro():
             email = cadastro.email.data
             nome_usuario = cadastro.nome_usuario.data
             senha = cadastro.senha.data
+            nome = cadastro.nome.data
+            sobrenome = cadastro.sobrenome.data
+            endereco = cadastro.endereco.data
+            numero_endereco = cadastro.numero_endereco.data
+            bairro = cadastro.bairro.data
+            cidade = cadastro.cidade.data
+            uf = cadastro.uf.data
+            cpf = cadastro.cpf.data
             hash_senha = bcrypt.generate_password_hash(senha).decode('utf-8')
-            novo_cadastro = CadastroModels(email = email, nome_usuario = nome_usuario, senha = hash_senha)
+            hash_cpf = bcrypt.generate_password_hash(cpf).decode('utf-8')
+            novo_cadastro = CadastroModels(email=email, nome_usuario=nome_usuario, senha=hash_senha, nome=nome, sobrenome=sobrenome, endereco=endereco, numero_endereco=numero_endereco, bairro=bairro, cidade=cidade, uf=uf, cpf=hash_cpf)
             db.session.add(novo_cadastro)
             db.session.commit()
             flash('Seu cadastro foi realizado com sucesso')
@@ -78,25 +87,52 @@ def sair():
     #session.pop('email', None)
     return redirect(url_for('login'))
 
-#A partir daqui foi onde faltei a aula, no caso de erro comentar todo o código até a marcação
 @app.route('/editar', methods=['POST', 'GET'])
 def editar():
     if 'nome_usuario' not in session:
         return redirect(url_for('login'))
+    
     usuario = CadastroModels.query.filter_by(nome_usuario = session['nome_usuario']).first()
-    #Porque não usar um elif aqui?
     if request.method == 'POST':
         usuario.nome_usuario = request.form.get('nome_usuario')
         usuario.email = request.form.get('email')
+        usuario.nome = request.form.get('nome')
+        usuario.sobrenome = request.form.get('sobrenome')
+        usuario.endereco = request.form.get('endereco')
+        usuario.numero_endereco = request.form.get('numero_endereco')
+        usuario.bairro = request.form.get('bairro')
+        usuario.cidade = request.form.get('cidade')
+        usuario.uf = request.form.get('uf')
+        cpf = request.form.get('cpf')
+        usuario.cpf = bcrypt.generate_password_hash(cpf).decode('utf-8')
         senha = request.form.get('senha')
         usuario.senha = bcrypt.generate_password_hash(senha).decode('utf-8')
         db.session.commit()
-        session['nome_usuario'] = usuario.nome_usuario
-        session['email'] = usuario.email
+        session['email'] = usuario.email #Sem essas linhas ele mantém o usuário antigo em visualização
+        session['nome_usuario'] = usuario.nome_usuario #Atualiza a sessão do usuário na página (Ex: Assim que você altera o nome de usuário ele puxa o novo nome de usuário)
         session['senha'] = usuario.senha
-        
+        session['nome'] = usuario.nome
+        session['sobrenome'] = usuario.sobrenome        
+        session['endereco'] = usuario.endereco
+        session['numero_endereco'] = usuario.numero_endereco
+        session['bairro'] = usuario.bairro
+        session['cidade'] = usuario.cidade
+        session['uf'] = usuario.uf
+        session['cpf'] = usuario.cpf      
         flash('Dados atualizados com sucesso')
-        return redirect(url_for('editar'))
+        return redirect(url_for('index'))
     
     return render_template('editar.html', title = 'Editar dados', usuario = usuario)
-#comentar até aqui
+
+@app.route('/excluir_conta', methods = ['GET'])
+def excluir_conta():
+    if 'nome_usuario' not in session:
+        return redirect(url_for('login'))
+    
+    usuario = CadastroModels.query.filter_by(nome_usuario = session['nome_usuario']).first()
+    db.session.delete(usuario)
+    db.session.commit()
+    session.clear()
+
+    flash('Sua conta foi excluída, para acessar o sistema novamente crie um novo cadastro.')
+    return redirect(url_for('cadastro'))

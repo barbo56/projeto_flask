@@ -13,20 +13,16 @@
 {% endwith %}
 
 <form action="{{ url_for('login') }}" method="post">
-    <div class="form-row align-items-center">
-        <div class="my-1">
-            <label for="nome_usuario">Usuário</label>
-            <div class="input-group">
-              <input type="text" class="form-control" id="nome_usuario" name="nome_usuario" placeholder="Nome de Usuário" required>
-            </div>
-        </div>
-        <div class="my-1">
-            <label for="senha">Senha</label>
-            <input type="password" class="form-control" id="senha" name="senha" placeholder="Insira sua senha" required>
-        </div>
-        <div class="my-1">
-          <button type="submit" class="btn btn-primary">Entrar</button>
-        </div>
-    </div>
+  <div class="form-row">
+      <div class="mb-6">
+          <label for="nome_usuario">Usuário</label>
+          <input type="text" class="form-control" id="nome_usuario" name="nome_usuario" placeholder="Nome de Usuário" required>
+      </div>
+      <div class="mb-3">
+          <label for="senha">Senha</label>
+          <input type="password" class="form-control" id="senha" name="senha" placeholder="Insira sua senha" required>
+      </div>
+  </div>
+  <button class="btn btn-primary" type="submit">Entrar</button>
 </form>
 {% endblock %}
