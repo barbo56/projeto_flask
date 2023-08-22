@@ -33,23 +33,29 @@
           <li class="nav-item">
             <a class="nav-link" href="contato">Contato</a>
           </li>
-
+          <!-- Caso dê cagadinha substituir o código pelo antigo, findando na marcação -->
           {% if session['nome_usuario'] %}
-            <li class="nav-item">
-              <span class="nav-link">Olá, {{ session['nome_usuario'] }}</span>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="sair"><i class="bi bi-box-arrow-right"></i></a>
-            </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Olá, {{ session['nome_usuario'] }}
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+              <h6 class="dropdown-header">Informações do Usuário</h6>
+              <div class="dropdown-divider"></div>
+                <p class="dropdown-item"><strong>Nome de usuário:</strong> {{ session['nome_usuario'] }}</p>
+                <p class="dropdown-item"><strong>Email:</strong> {{ session['email'] }}</p>
+              <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="/editar">Alterar Dados</a>
+                <a class="dropdown-item" href="/sair">Sair</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="/excluir_conta" onclick="return confirm('Tem certeza de que deseja excluir sua conta? Essa ação é irreversível.');">Excluir Conta</a>
+            </div>
+          </li>
           {% else %}
-          <li class="nav-item">
-            <a class="nav-link" href="cadastro">Cadastre-se</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="login">Entrar</a>
-          </li>
+            <li class="nav-item"><a class="nav-link" href="/cadastro">Cadastre-se</a></li>
+            <li class="nav-item"><a class="nav-link" href="/login">Entrar</a></li>
           {% endif %}
-
+          <!-- Fim da marcação -->
         </ul>
       </div>
     </div>

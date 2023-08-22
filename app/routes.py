@@ -77,3 +77,26 @@ def sair():
     session.pop('nome_usuario', None)
     #session.pop('email', None)
     return redirect(url_for('login'))
+
+#A partir daqui foi onde faltei a aula, no caso de erro comentar todo o código até a marcação
+@app.route('/editar')
+def editar():
+    if 'nome_usuario' not in session:
+        return redirect(url_for('login'))
+    usuario = CadastroModels.query.filter_by(nome_usuario = session['nome_usuario']).first()
+    #Porque não usar um elif aqui?
+    if request.method == 'POST':
+        usuario.nome_usuario = request.form.get('nome_usuario')
+        usuario.email = request.form.get('email')
+        senha = request.form.get('senha')
+        usuario.senha = bcrypt.generate_password_hash(senha).decode('utf-8')
+        db.session.commit()
+        session['nome_usuario'] = usuario.nome_usuario
+        session['email'] = usuario.email
+        session['senha'] = usuario.senha
+        
+        flash('Dados atualizados com sucesso')
+        return redirect(url_for('editar'))
+    
+    return render_template('editar.html', title = 'Editar dados', usuario = usuario)
+#comentar até aqui

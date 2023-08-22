@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+
+{% with mensagens = get_flashed_messages() %}
+  {% if mensagens %}
+    <ul class="flashes list-unstyled">
+      {% for mensagem in mensagens %}
+        <li class="alert alert-secondary" role="alert">{{ mensagem }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+
+<form action="" method="post">
+    <div class="form-row">
+        <div class="mb-3">
+            <label for="nome_usuario">Nome de usuário</label>
+            <input type="text" class="form-control" name="nome_usuario" value="{{ session['nome_usuario'] }}">
+        </div>
+        <div class="mb-3">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" name="email" value="{{ session['email'] }}">
+        </div>
+        <div class="mb-3">
+            <label for="senha">Senha</label>
+            <input type="password" class="form-control" name="senha" value="{{ session['senha'] }}">
+        </div>
+    </div>
+    <button class="btn btn-primary" type="submit">Salvar</button>
+</form>
+{% endblock %}
