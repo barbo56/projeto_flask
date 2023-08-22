@@ -79,7 +79,7 @@ def sair():
     return redirect(url_for('login'))
 
 #A partir daqui foi onde faltei a aula, no caso de erro comentar todo o código até a marcação
-@app.route('/editar')
+@app.route('/editar', methods=['POST', 'GET'])
 def editar():
     if 'nome_usuario' not in session:
         return redirect(url_for('login'))
