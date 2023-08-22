@@ -15,15 +15,27 @@ O projeto de iniciante do Flask incluirá as seguintes funcionalidades básicas:
 
 Os requisitos para executar o projeto são:
 
-    • Python==3.11.4
+    • alembic==1.11.2
+    • bcrypt==4.0.1
     • blinker==1.6.2
     • click==8.1.6
     • colorama==0.4.6
     • Flask==2.3.2
+    • Flask-Bcrypt==1.0.1
+    • Flask-DotEnv==0.1.2
+    • Flask-Migrate==4.0.4
+    • Flask-SQLAlchemy==3.0.5
+    • Flask-WTF==1.1.1
+    • greenlet==2.0.2
     • itsdangerous==2.1.2
     • Jinja2==3.1.2
+    • Mako==1.2.4
     • MarkupSafe==2.1.3
+    • python-dotenv==1.0.0
+    • SQLAlchemy==2.0.19
+    • typing_extensions==4.7.1
     • Werkzeug==2.3.6
+    • WTForms==3.0.1
 
 ## Objetivos de Aprendizagem
 
@@ -39,7 +51,7 @@ Tem a inteção de capacitar o aluno a:
 
 ## Instruções
 
-Para configuração e instalação do ambiente de desenvolvimento basta baixar o arquivo "requirements.txt", colocar numa pasta dedicada ao projeto e executar o comando:
+Para configuração e instalação do ambiente de desenvolvimento basta baixar o arquivo "requirements.txt", colocar numa pasta dedicada ao projeto e executar o comando após criação da máquina virtual:
     
     pip install -r requirements.txt
 
