@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+<section class="main-content">
+    <h2 class="mb-4">Detalhes do Projeto: Website, Companhia XPTO</h2>
+    <div class="card">
+        <div class="card-body">
+            <h3 class="card-title">Website XPTO</h3>
+            <p class="card-text">Bem-vindo ao projeto "XPTO Company"!</p>
+            <p><strong>Descrição:</strong> Desenvolvimento de um website responsivo para a Companhia XPTO, uma empresa fictícia do ramo de tecnologia.</p>
+            <p><strong>Tecnologias Utilizadas:</strong> HTML, CSS, JavaScript, Bootstrap.</p>
+            <p><strong>Cliente:</strong> Companhia XPTO</p>
+            <!-- Outro conteúdo do projeto aqui -->
+            
+            {% if session['nome_usuario'] %}
+                <a href="{{ url_for('projeto') }}" class="btn btn-primary">Voltar à Lista de Projetos</a>
+            {% else %}
+                <a href="{{ url_for('login') }}" class="btn btn-primary">Faça login para acessar</a>
+            {% endif %}
+        </div>
+    </div>
+</section>
+{% endblock %}

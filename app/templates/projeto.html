@@ -7,21 +7,25 @@
       <div class="col-md-6">
         <div class="project mb-4">
           <h3>Projeto 1 - Website para Companhia XPTO</h3>
-          <div class="project-details">
-            <p><strong>Descrição:</strong> Desenvolvimento de um website responsivo para a Companhia XPTO, uma empresa fictícia do ramo de tecnologia.</p>
-            <p><strong>Tecnologias Utilizadas:</strong> HTML, CSS, JavaScript, Bootstrap.</p>
-            <p><strong>Cliente:</strong> Companhia XPTO</p>
-          </div>
+          <a href="
+          {% if session['nome_usuario'] %}
+              {{ url_for('projeto1') }}
+          {% else %}
+              {{ url_for('login') }}
+          {% endif %}
+          " class="btn btn-primary">Leia mais</a>
         </div>
       </div>
       <div class="col-md-6">
         <div class="project mb-4">
           <h3>Projeto 2 - Aplicativo Mobile para Startup ABC</h3>
-          <div class="project-details">
-            <p><strong>Descrição:</strong> Desenvolvimento de um aplicativo mobile para a Startup ABC, uma empresa fictícia de tecnologia.</p>
-            <p><strong>Tecnologias Utilizadas:</strong> React Native, Node.js, MongoDB.</p>
-            <p><strong>Cliente:</strong> Startup ABC</p>
-          </div>
+          <a href="
+          {% if session['nome_usuario'] %}
+              {{ url_for('projeto2') }}
+          {% else %}
+              {{ url_for('login') }}
+          {% endif %}
+          " class="btn btn-primary">Leia mais</a>
         </div>
       </div>
     </div>

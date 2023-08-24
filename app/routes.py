@@ -136,3 +136,11 @@ def excluir_conta():
 
     flash('Sua conta foi excluída, para acessar o sistema novamente crie um novo cadastro.')
     return redirect(url_for('cadastro'))
+
+@app.route('/projeto1')
+def projeto1():
+    return render_template('projetos/projeto1.html')
+
+@app.route('/projeto2')
+def projeto2():
+    return render_template('projetos/projeto2.html')
