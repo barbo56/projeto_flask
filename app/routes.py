@@ -71,8 +71,16 @@ def login():
         senha = request.form.get('senha')
         usuario = CadastroModels.query.filter_by(nome_usuario = nome_usuario).first() #Busca a primeira ocorrência, no banco de dados, da ocorrência digitada
         if usuario and check_password_hash(usuario.senha, senha): #Verifica se o usuário solicitado no banco de dados confere com o digitado na página
+            session['email'] = usuario.email #Sempre atualizar
             session['nome_usuario'] = usuario.nome_usuario
-            #session['email'] = usuario.email
+            session['nome'] = usuario.nome
+            session['sobrenome'] = usuario.sobrenome        
+            session['endereco'] = usuario.endereco
+            session['numero_endereco'] = usuario.numero_endereco
+            session['bairro'] = usuario.bairro
+            session['cidade'] = usuario.cidade
+            session['uf'] = usuario.uf
+            session['cpf'] = usuario.cpf
             flash('Login efetuado com sucesso!')
             time.sleep(1) #Define o tempo que a pagina permanece em visualização antes de ser redirecionada
             return redirect(url_for('index'))
@@ -108,6 +116,7 @@ def editar():
         senha = request.form.get('senha')
         usuario.senha = bcrypt.generate_password_hash(senha).decode('utf-8')
         db.session.commit()
+
         session['email'] = usuario.email #Sem essas linhas ele mantém o usuário antigo em visualização
         session['nome_usuario'] = usuario.nome_usuario #Atualiza a sessão do usuário na página (Ex: Assim que você altera o nome de usuário ele puxa o novo nome de usuário)
         session['senha'] = usuario.senha

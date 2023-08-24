@@ -1,159 +1,208 @@
-    body {
-      font-family: 'Verdana', sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #232323;
-      color: #ddd;
-    }
+body {
+  font-family: 'Lora', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #232323;
+  color: #ddd;
+}
 
-    header {
-      background-color: #333;
-      padding: 20px;
-      text-align: center;
-    }
+header {
+  background-color: #333;
+  padding: 20px;
+  text-align: center;
+}
 
-    h1 {
-      margin: 0;
-      font-size: 36px;
-      color: #fff;
-    }
+h1 {
+  margin: 0;
+  font-size: 36px;
+  color: #f3e1bf;
+}
 
-    nav {
-      background-color: #1a1a1a;
-      text-align: center;
-      padding: 10px;
-    }
+nav {
+  background-color: #868484;
+  text-align: center;
+  padding: 10px;
+}
 
-    nav a {
-      color: #ddd;
-      text-decoration: none;
-      padding: 10px 20px;
-      margin: 0 5px;
-    }
+nav a {
+  color: #ddd;
+  text-decoration: none;
+  padding: 10px 20px;
+  margin: 0 5px;
+}
 
-    nav a:hover {
-      background-color: #333;
-    }
+nav a:hover {
+  background-color: #333;
+}
 
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 30px;
-    }
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 30px;
+}
 
-    .intro {
-      text-align: center;
-      margin-bottom: 30px;
-    }
+.intro {
+  text-align: center;
+  margin-bottom: 30px;
+}
 
-    .intro h2 {
-      font-size: 24px;
-      color: #f5deb3; /* Cor amarela creme */
-    }
+.intro h2 {
+  font-size: 24px;
+  color: #f5deb3; /* Cor amarela creme */
+}
 
-    .projects {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
+.projects {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 
-    .project {
-      width: 300px;
-      margin: 20px;
-      padding: 20px;
-      background-color: #3f3f3f;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    }
+.project {
+  width: 300px;
+  margin: 20px;
+  padding: 20px;
+  background-color: #3f3f3f;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
 
-    .project h3 {
-      color: #f5deb3; /* Cor amarela creme */
-      font-size: 20px;
-    }
+.project h3 {
+  color: #f5deb3; /* Cor amarela creme */
+  font-size: 20px;
+}
 
-    .project p {
-      color: #ddd;
-      margin-top: 10px;
-    }
+.project p {
+  color: #ddd;
+  margin-top: 10px;
+}
 
-    footer {
-      background-color: #333;
-      color: #ddd;
-      text-align: center;
-      padding: 20px;
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-    }
-    
-    /* CSS Formulário */
-    form {
-      max-width: 400px;
-      margin: 0 auto;
-      padding: 20px;
-      background-color: #eecb8b; /* Roxo claro */
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra leve */
-    }
+footer {
+  background-color: #333;
+  color: #ddd;
+  text-align: center;
+  padding: 10px 0;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
 
-    /* Estilo para os campos de entrada */
-    form label {
-      display: block; /* Torna cada label ocupar uma linha inteira */
-      margin-bottom: 8px; /* Espaçamento vertical entre os labels */
-      color: #333; /* Cor do texto padrão */
-    }
+/* CSS Formulário */
+form {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #eecb8b; /* Roxo claro */
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra leve */
+}
 
-    input[type="text"],
-    input[type="email"],
-    input[type="tel"],
-    textarea {
-      display: block; /* Torna cada input e textarea ocuparem uma linha inteira */
-      width: 100%;
-      margin-bottom: 12px; /* Espaçamento vertical entre os campos */
-      padding: 10px;
-      border: 1px solid #ccc; /* Borda cinza claro */
-      border-radius: 5px;
-    }
+/* Estilo para os campos de entrada */
+form label {
+  display: block; /* Torna cada label ocupar uma linha inteira */
+  margin-bottom: 8px; /* Espaçamento vertical entre os labels */
+  color: #333; /* Cor do texto padrão */
+}
 
-    /* Estilo para o botão de envio */
-    .btn-primary {
-      background-color: #6c5b7b; /* Rosa escuro */
-      color: #fff; /* Texto branco */
-      padding: 10px 15px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+  display: block; /* Torna cada input e textarea ocuparem uma linha inteira */
+  width: 100%;
+  margin-bottom: 12px; /* Espaçamento vertical entre os campos */
+  padding: 10px;
+  border: 1px solid #ccc; /* Borda cinza claro */
+  border-radius: 5px;
+}
 
-    .btn-primary:hover {
-      background-color: #9b89b0; /* Rosa mais claro ao passar o mouse */
-    }
+/* Estilo para o botão de envio */
+.btn-primary {
+  background-color: #776885; /* Rosa escuro */
+  color: #fff; /* Texto branco */
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
 
-    /* Estilo para o dropdown */
-    .dropdown-menu {
-      background-color: #5e5e5e; /* Amarelo creme */
-      border: none;
-      border-radius: 5px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra leve */
-      padding: 10px;
-      width: 250px; /* Largura da janela flutuante */
-    }
+.btn-primary:hover {
+  background-color: #9b89b0; /* Rosa mais claro ao passar o mouse */
+}
 
-    /* Estilo para os itens do dropdown */
-    .dropdown-item {
-      color: #ffffff; /* Cor do texto */
-      padding: 8px 15px;
-      text-decoration: none;
-      display: block;
-    }
+/* Estilo para o dropdown */
+.dropdown-menu {
+  background-color: #5e5e5e; /* Amarelo creme */
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra leve */
+  padding: 10px;
+  width: 250px; /* Largura da janela flutuante */
+}
 
-    .dropdown-item:hover {
-      background-color: #f0e0b5; /* Amarelo creme mais claro ao passar o mouse */
-    }
+/* Estilo para os itens do dropdown */
+.dropdown-item {
+  color: #ffffff; /* Cor do texto */
+  padding: 8px 15px;
+  text-decoration: none;
+  display: block;
+}
 
-    /* Estilo para o cabeçalho do dropdown */
-    .dropdown-header {
-      color: #ffffff; /* Cor do texto do cabeçalho */
-      font-size: 14px;
-      padding: 5px 15px;
-    }
+.dropdown-item:hover {
+  background-color: #f0e0b5; /* Amarelo creme mais claro ao passar o mouse */
+}
+
+/* Estilo para o cabeçalho do dropdown */
+.dropdown-header {
+  color: #ffffff; /* Cor do texto do cabeçalho */
+  font-size: 14px;
+  padding: 5px 15px;
+}
+
+/* Estilo para os projetos 
+/* Estilo para a seção principal */
+.main-content {
+  background-color: #eecb8b; /* Amarelo creme */
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra leve */
+}
+
+/* Estilo para o título da seção */
+.main-content h2 {
+  color: #333; /* Cor do texto preto */
+  margin-bottom: 20px;
+}
+
+/* Estilo para o card */
+.card {
+  background-color: #333; /* Preto */
+  color: #fff; /* Cor do texto branco */
+  border: none;
+}
+
+/* Estilo para o corpo do card */
+.card-body {
+  padding: 20px;
+}
+
+/* Estilo para o título do card */
+.card-title {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+/* Estilo para o texto do card */
+.card-text {
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+/* Estilo para os parágrafos com informações do projeto */
+.card-body p {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.projeto_maior {
+  font-size: 20px;
+}
